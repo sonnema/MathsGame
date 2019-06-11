@@ -2,9 +2,15 @@ html{
 	height:100%;
 	background:radial-gradient(circle,#fff,#b4d1d3);
 }
+#heading{
+	text-align:center;
+	font-size:300%;
+	font-family:Comic Sans,cursive;
+	padding-top:1%;
+}
 #container{
 	background-color:#67b9bf;
-	margin:10% auto;
+	margin:3% auto;
 	width: 94%;
     height: 80vh;
     padding:2%;
