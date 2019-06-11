@@ -1,6 +1,9 @@
 html{
 	height:100%;
 	background:radial-gradient(circle,#fff,#b4d1d3);
+	background:-webkit-radial-gradient(circle,#fff,#b4d1d3);
+	background:-o-radial-gradient(circle,#fff,#b4d1d3);
+	background:-moz-radial-gradient(circle,#fff,#b4d1d3);
 }
 #heading{
 	text-align:center;
