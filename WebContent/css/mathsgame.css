@@ -1,0 +1,209 @@
+html{
+	height:100%;
+	background:radial-gradient(circle,#fff,#b4d1d3);
+}
+#container{
+	background-color:#67b9bf;
+	margin:10% auto;
+	width: 94%;
+    height: 80vh;
+    padding:2%;
+    border-radius:1%;
+    box-shadow:0em 0.5em 0em 0em #509297;
+    -moz-box-shadow:0em 0.5em 0em 0em #509297;
+    -webkit-box-shadow:0em 0.5em 0em 0em #509297;
+    position:relative;
+}
+#score{
+	background-color:#FDFD1B;
+	color:#514d217d;
+	padding:0.25%;
+	position:absolute;
+	top:5%;
+	left:85%;
+	text-align:center;
+	right:1%;
+	font-size:110%;
+	border-radius:4%;
+	box-shadow:0em 0.18em 0em #3e3e167d;
+	-moz-box-shadow:0em 0.18em 0em #3e3e167d;
+	-webkit-box-shadow:0em 0.18em 0em #3e3e167d;
+}
+#correct{
+	background-color:#66ec5b;
+	position:absolute;
+	top:5%;
+	left:45%;
+	color:white;
+	text-align:center;
+	padding:0.55%;
+	font-size:110%;
+	border-radius:4%;
+	display:none;
+}
+#wrong{
+	background-color:#FF5733;
+	display:none;
+	position:absolute;
+	top:5%;
+	left:45%;
+	color:white;
+	text-align:center;
+	padding:0.55%;
+	font-size:110%;
+	border-radius:4%;
+	display:none;
+}
+#question{
+	background-color:#417376;
+    margin:5% auto 0% auto;
+    width: 80%;
+    height: 20%;
+    color:black;
+    border-radius:2%;
+    font-size:800%;
+    font-weight:bold;
+    padding:3% 1%;
+    text-align:center;
+    box-shadow:0 0.03em 0 #294446;
+    -moz-box-shadow:0 0.03em 0 #294446;
+    -webkit-box-shadow:0 0.03em 0 #294446; 
+}
+#instruction{
+	background-color:#b375ce;
+	margin:1% auto 0% auto;
+	width: 80%;
+	padding:3% 1%;
+    height: 1%;
+    border-radius:2.5%;
+    text-align:center;
+    font-size:140%;
+    color:#472d52;
+    font-weight:bold;
+    line-height:0.75em;
+    box-shadow:0 0.25em 0 #674576;
+    -moz-box-shadow:0 0.25em 0 #674576;
+    -webkit-box-shadow:0 0.25em 0 #674576;
+}
+#choices{
+	background-color:none;
+	margin:2% auto;
+	width: 82%;
+	height: 22%;
+    text-align:center;
+    font-size:140%;
+    color:black;
+    font-weight:bold;
+    line-height:0.75em;
+}
+.box{
+	background-color:white;
+	float:left;
+	margin-right:4%;
+	width: 22%;
+    height: 100%;
+    border-radius:2%;
+    text-align:center;
+    line-height:4em;
+    font-weight:bold;
+    font-size:140%;
+    box-shadow:0 0.1em 0 #63aeb3;
+    -moz-box-shadow:0 0.1em 0 #63aeb3;
+    -webkit-box-shadow:0 0.1em 0 #63aeb3;
+    cursor:pointer;/* Changes the arrow cursor to hand cursor */
+    position:relative;  
+    transition:all 0.2s;
+    -webkit-transition:all 0.2s;
+    -moz-transition:all 0.2s;
+    -o-transition:all 0.2s;
+    -ms-transition:all 0.2s;
+}
+.box:hover{
+	background-color:#7563b3;
+	color:white;
+	box-shadow:0 0.1em 0 #604c85;
+	-moz-box-shadow:0 0.1em 0 #604c85;
+	-webkit-box-shadow:0 0.1em 0 #604c85;
+}
+.box:active{
+	box-shadow:0 0 0 #604c85;
+	-moz-box-shadow:0 0 0 #604c85;
+	-webkit-box-shadow:0 0 0 #604c85;
+	top:0.1em;
+}
+#box4{
+	margin-right:0;
+}
+#startreset{
+	background-color:#B6FC08;
+	width: 10%;
+    height: 8%;
+    color:#354019;
+    margin:0 auto;
+    border-radius:2%;
+    text-align:center;
+    line-height:2.8em;
+    font-weight:bold;
+    font-size:125%;
+    cursor:pointer;
+    position:relative;
+    box-shadow:0 0.15em 0 #354019;
+    -moz-box-shadow:0 0.15em 0 #354019;
+    -webkit-box-shadow:0 0.15em 0 #354019;
+    transition:all 0.2s;
+    -webkit-transition:all 0.2s;
+    -moz-transition:all 0.2s;
+    -o-transition:all 0.2s;
+    -ms-transition:all 0.2s;
+}
+#startreset:hover{
+	background-color:#7ba511;
+	color:#fff;
+	box-shadow:0 0.15em 0 #78a406;
+	-moz-box-shadow:0 0.15em 0 #78a406;
+	-webkit-box-shadow:0 0.15em 0 #78a406;
+}
+#startreset:active{
+	box-shadow:0 0 0 #78a406;
+	-moz-box-shadow:0 0 0 #78a406;
+	-webkit-box-shadow:0 0 0 #78a406;
+	top:0.15em;
+}
+#timeremaining{
+	background-color:#FF5733;
+	width:15%;
+	height:8%;
+	position:absolute;
+	top:90%;
+	left:80%;
+	color:white;
+	border-radius:3%;
+	font-size:110%;
+	font-weight:bold;
+	line-height:3em;
+	text-align:center;
+	box-shadow:0 0.15em 0 #571513;
+	-moz-box-shadow:0 0.15em 0 #571513;
+	-webkit-box-shadow:0 0.15em 0 #571513;
+	display:none;
+}
+#gameover{
+	background-color:#F79243;
+    position:absolute;
+    top:25%;
+    left:20%;
+    width: 60%;
+    height: 50%;
+    z-index:1;
+    color:black;
+    border-radius:2%;
+    font-size:220%;
+    font-weight:bold;
+    padding-top:1.2em;
+    line-height:2em;
+    text-align:center;
+    box-shadow:0 0.03em 0 #294446;
+    -moz-box-shadow:0 0.03em 0 #294446;
+    -webkit-box-shadow:0 0.03em 0 #294446;
+    display:none; 
+}
