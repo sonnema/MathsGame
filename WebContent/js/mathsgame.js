@@ -5,15 +5,22 @@ var totaltime  = 60;
 var action;
 var optionselected = '';
 var box = [];
+var answer;
+var num1, num2, operation, operationIndex, question;
+var operationArray = ['X','+','/','-'];
+var incorrectTrials = 0;
 document.getElementById("startreset").onclick = function(){
-if (playing == true)
+	if (playing == true)
 	{
 		location.reload();
 	}
-else
+	else
 	{
 		playing = true;
+		hide('gameover');
+		score = 0;
 		document.getElementById("scorevalue").innerHTML = score;
+		totaltime = 60;
 		document.getElementById("timeremainingvalue").innerHTML = totaltime;
 		show("timeremaining");
 		document.getElementById("startreset").innerHTML = 'Reset Game';
@@ -40,32 +47,76 @@ function startCountdown()
 function stopCountdown()
 {
 	clearInterval(action);
+	totaltime = 0;
 }
 function show(id)
 {
 	document.getElementById(id).style.display = 'block';
+	if(id == 'wrong')
+	{
+		incorrectTrials ++;
+		if(incorrectTrials == 3)
+			{
+				document.getElementById('totalscore').innerHTML = score;
+				show('gameover');
+				stopCountdown();
+				document.getElementById("startreset").innerHTML = 'Start Game';
+				playing = false;
+			}
+	}	
 }
 function hide(id)
 {
 	document.getElementById(id).style.display = 'none';
+	
 }
 function generateQuestions()
 {
-	var num1 = Math.floor((Math.random() * 10) + 1);
-	var num2 = Math.floor((Math.random() * 10) + 1);
-	var question = num1 + ' X ' + num2;
-	document.getElementById("question").innerHTML = question;
-	answer = num1 * num2; 
-	if(answer < 10)
+	do{operationIndex = Math.floor((Math.random() * operationArray.length));}while(operationIndex > operationArray.length);
+	operation = operationArray[operationIndex];
+	switch(operation)
 	{
-		generateQuestions();
-	}	
-	else
-	{	
-		generateOptions(answer);
-	}	
+	case 'X' :
+		do
+		{	
+		num1 = Math.floor((Math.random() * 10) + 1);
+		num2 = Math.floor((Math.random() * 10) + 1);
+		answer = num1 * num2;
+		}while(answer < 10);
+		break;
+	case '+' :
+		num1 = Math.floor((Math.random() * 100) + 1);
+		num2 = Math.floor((Math.random() * 100) + 1);
+		answer = num1 + num2;
+		break;
+	case '/' :
+		do
+		{
+			num1 = Math.floor((Math.random() * 144) + 1);
+			do
+			{
+				num2 = Math.floor((Math.random() * 12) + 1);
+			}while(num2 == 1)	
+			answer = num1 / num2;
+		}while((answer - Math.floor(answer)) !== 0);
+		break;
+	case '-' :
+		do
+		{
+			num1 = Math.floor((Math.random() * 100) + 1);
+			num2 = Math.floor((Math.random() * 100) + 1);
+		}while(num1 <= num2);	
+		answer = num1 - num2;
+		break;
+	default:
+		num1 = num2 = 1;
+	}
+	
+	question = num1 + operation + num2;
+	document.getElementById("question").innerHTML = question; 
+	generateOptions();
 }
-function generateOptions(answer)
+function generateOptions()
 {
 	var correctoption = Math.floor((Math.random() * 4) + 1);
 	var answers = [];
@@ -77,7 +128,29 @@ function generateOptions(answer)
 					answers.push(answer);
 					do
 					{	
-						wronganswer = ((Math.floor(Math.random() * 10 ) + 1) * (Math.floor(Math.random() * 10 ) + 1));
+						switch(operation)
+						{
+						case 'X' :
+							wronganswer = ((Math.floor(Math.random() * 10 ) + 1) * (Math.floor(Math.random() * 10 ) + 1));
+							break;
+						case '+' :
+							wronganswer = ((Math.floor(Math.random() * 100 ) + 1) + (Math.floor(Math.random() * 100 ) + 1));
+							break;
+						case '/' :
+							do
+							{
+								wronganswer = ((Math.floor(Math.random() * 144 ) + 1) / (Math.floor(Math.random() * 12 ) + 1));
+							}while((wronganswer - Math.floor(wronganswer)) !== 0);
+							break;
+						case '-' :
+							do
+							{	
+							wronganswer = ((Math.floor(Math.random() * 100 ) + 1) - (Math.floor(Math.random() * 100 ) + 1));
+							}while(wronganswer <= 0)
+							break;
+						default:
+							wronganswer = 0;
+						}
 					}while(answers.indexOf(wronganswer)>-1);
 					document.getElementById('option' + i).innerHTML = wronganswer;
 					answers.push(wronganswer);
